@@ -48,14 +48,16 @@ function mainMenu(person, people) {
 
   switch (displayOption) {
     case 'info':
-      // TODO: get person's info
       displayPerson(person);
       break;
     case 'family':
-      // TODO: get person's family
+      //let family = people.filter();
       break;
     case 'descendants':
-      // TODO: get person's descendants
+      let descendants = people.filter(potentialMatch => {
+        return potentialMatch.parents.includes(person.id);
+      });
+      displayPeople(descendants);
       break;
     case 'restart':
       app(people); // restart
