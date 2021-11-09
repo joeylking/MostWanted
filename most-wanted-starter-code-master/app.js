@@ -51,7 +51,25 @@ function mainMenu(person, people) {
       displayPerson(person);
       break;
     case 'family':
-      //let family = people.filter();
+      let children = people.filter(potentialMatch => {
+        return potentialMatch.parents.includes(person.id);
+      });
+
+      let parents = people.filter(potentialMatch => {
+        return person.parents.includes(potentialMatch.id);
+      });
+
+      let family = [...parents, ...children];
+      console.log(family);
+
+      if (person.currentSpouse !== null) {
+        let spouse = people.filter(potentialMatch => {
+          return potentialMatch.id === person.currentSpouse;
+        });
+        family.push(spouse[0]);
+      }
+
+      displayPeople(family);
       break;
     case 'descendants':
       let descendants = people.filter(potentialMatch => {
