@@ -89,14 +89,74 @@ function searchByName(people) {
       return false;
     }
   });
-  // TODO: find the person single person object using the name they entered.
   return foundPerson[0];
 }
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people) {}
+function searchByEyeColor(people) {
+  let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
-//TODO: add other trait filter functions here.
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.eyeColor === eyeColor) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return foundPeople;
+}
+
+function searchByDob(people) {
+  let dob = promptFor("What is the person's date of birth?", autoValid);
+
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.dob === dob) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return foundPeople;
+}
+
+function searchByHeight(people) {
+  let height = promptFor("What is the person's height?", autoValid);
+
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.height === height) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return foundPeople;
+}
+
+function searchByWeight(people) {
+  let weight = promptFor("What is the person's weight?", autoValid);
+
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.weight === weight) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return foundPeople;
+}
+
+function searchByGender(people) {
+  let gender = promptFor("What is the person's gender?", autoValid);
+
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.gender === gender) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return foundPeople;
+}
 
 //#endregion
 
@@ -127,7 +187,6 @@ function displayPerson(person) {
   Weight: ${person.weight} lbs
   Eye Color: ${person.eyeColor}
   Occupation: ${person.occupation}`;
-  // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
 
